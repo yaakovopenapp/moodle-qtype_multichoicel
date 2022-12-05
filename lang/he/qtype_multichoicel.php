@@ -85,3 +85,4 @@ $string['showstandardinstruction_help'] = 'האם להציג את ההוראות
 $string['toomanyselected'] = 'בחרת יותר מדי אפשרויות.';
 
 $string['maximumanswers'] = 'מספר תשובות מקסימלי';
+$string['messagemaxans'] = 'Maximum number of answers';

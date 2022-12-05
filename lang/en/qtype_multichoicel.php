@@ -83,3 +83,4 @@ $string['showstandardinstruction_help'] = 'Whether to show the instructions "Sel
 $string['toomanyselected'] = 'You have selected too many options.';
 
 $string['maximumanswers'] = 'Maximum number of answers';
+$string['messagemaxans'] = 'Please select {$a} only.';

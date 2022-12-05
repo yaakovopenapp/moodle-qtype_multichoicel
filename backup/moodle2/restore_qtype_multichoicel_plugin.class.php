@@ -69,6 +69,9 @@ class restore_qtype_multichoicel_plugin extends restore_qtype_plugin {
 
         // If the question has been created by restore, we need to create its
         // qtype_multichoicel_options too.
+
+
+
         if ($questioncreated) {
             $data->questionid = $newquestionid;
 

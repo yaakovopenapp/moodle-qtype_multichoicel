@@ -24,9 +24,13 @@
 define(['jquery'], function() {
 
 
-    var init = function(max) {
+    var init = function(max,messagemaxans,messagemaxonly) {
+
 
         $max = max-1;
+        $messagemaxans = messagemaxans;
+        $messagemaxonly = messagemaxonly;
+
         $(document).ready(function() {
             let $total = 0;
             $("div.answer input[type=checkbox]").each(function(){
@@ -44,8 +48,10 @@ define(['jquery'], function() {
     });
 
     $(document).ready(function() {
+
             $("div.formulation.clearfix").each(function() {
-            if ($(this).find("#maximumselections").length) {
+
+                if ($(this).find("#maximumselections").length) {
                 let maxselect = parseInt($(this).find("#maximumselections").text());
                 $(this).find("#numberselections").text(maxselect);
                 let $total = 1;
@@ -62,7 +68,7 @@ define(['jquery'], function() {
                             event.preventDefault();
                             event.stopPropagation();
                             if (!$("div.validationerror").length) {
-                                $("div.answer").after("<div class='validationerror'> Please select    " + maxselect + " only.</div>");
+                                $("div.answer").after("<div class='validationerror'>" + $messagemaxans + "  " + maxselect + " " + $messagemaxonly + " </div>");
                             }
                         }
                     });

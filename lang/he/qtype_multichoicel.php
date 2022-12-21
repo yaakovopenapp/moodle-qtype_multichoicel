@@ -23,7 +23,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['answerhowmany'] = 'תשובה אחת או יותר?';
+$string['answerhowmany'] = 'תשובות מרובות';
 $string['answerhowmany_desc'] = '
 האם ברירת המחדל צריכה להיות תגובה אחת (כלומר לחצני בחירה) או תגובות מרובות (כלומר תיבות סימון).';
 $string['answernumbering'] = 'למספר את הבחירות?';
@@ -61,13 +61,13 @@ $string['overallpartiallycorrectfeedback'] = 'משוב לכל תגובה נכו�
 $string['partiallycorrectfeedback'] = 'לכל תגובה נכונה חלקית';
 $string['pleaseselectananswer'] = 'אנא בחר תשובה.';
 $string['pleaseselectatleastoneanswer'] = 'אנא בחר תשובה אחת לפחות.';
-$string['pluginname'] = 'מגבלת בחירה מרובה';
-$string['pluginname_help'] = 'בתגובה לשאלה (שעשויה לכלול תמונה) המשיב בוחר מתוך מספר תשובות. לשאלת מגבלת בחירה מרובה עשויה להיות תשובה נכונה אחת או מרובות.';
+$string['pluginname'] = 'בחירה מרובה מוגבלת';
+$string['pluginname_help'] = 'בתגובה לשאלה (שעשויה לכלול תמונה) המשיב בוחר מתוך מספר תשובות. לשאלת בחירה מרובה מוגבלת עשויה להיות תשובה נכונה אחת או מרובות.';
 $string['pluginname_link'] = 'שאלה/סוג/רב-קולי';
-$string['pluginnameadding'] = 'הוספת שאלת מגבלת בחירה מרובה';
-$string['pluginnameediting'] = 'עריכת שאלת מגבלת בחירה מרובה';
+$string['pluginnameadding'] = 'הוספת שאלת בחירה מרובה מוגבלת';
+$string['pluginnameediting'] = 'עריכת שאלת בחירה מרובה מוגבלת';
 $string['pluginnamesummary'] = 'מאפשר בחירה של תגובות בודדות או מרובות מתוך רשימה מוגדרת מראש.';
-$string['privacy:metadata'] = 'תוסף סוג שאלות מגבלת בחירה מרובה מאפשר למחברי שאלות להגדיר אפשרויות ברירת מחדל כהעדפות משתמש.';
+$string['privacy:metadata'] = 'תוסף סוג שאלות בחירה מרובה מוגבלת מאפשר למחברי שאלות להגדיר אפשרויות ברירת מחדל כהעדפות משתמש.';
 $string['privacy:preference:defaultmark'] = 'סימן ברירת המחדל שהוגדר עבור שאלה נתונה.';
 $string['privacy:preference:penalty'] = 'העונש על כל ניסיון שגוי כאשר שאלות מופעלות באמצעות ההתנהגות \'אינטראקטיבי עם מספר ניסיונות\' או \'מצב אדפטיבי\'.';
 $string['privacy:preference:single'] = 'האם התשובה היא יחידה עם לחצני בחירה או מרובות עם תיבות סימון.';
@@ -81,8 +81,9 @@ $string['shuffleanswers_desc'] = 'האם יש לערבב את האפשרויות
 $string['shuffleanswers_help'] = 'אם מופעל, סדר התשובות נערבב באופן אקראי עבור כל ניסיון, בתנאי ש"ערב בתוך שאלות" בהגדרות הפעילות מופעל גם כן.';
 $string['singleanswer'] = 'בחר תשובה אחת.';
 $string['showstandardinstruction'] = 'הצג הוראות סטנדרטיות';
-$string['showstandardinstruction_help'] = 'האם להציג את ההוראות "בחר אחד:" או "בחר אחד או יותר:" לפני תשובות מגבלת בחירה מרובה.';
+$string['showstandardinstruction_help'] = 'האם להציג את ההוראות "בחר אחד:" או "בחר אחד או יותר:" לפני תשובות בחירה מרובה מוגבלת.';
 $string['toomanyselected'] = 'בחרת יותר מדי אפשרויות.';
 
 $string['maximumanswers'] = 'מספר תשובות מקסימלי';
-$string['messagemaxans'] = 'Maximum number of answers';
+$string['messagemaxans'] = 'ניתן לבחור ';
+$string['messagemaxonly'] = 'תשובות בלבד.';

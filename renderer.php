@@ -87,7 +87,7 @@ abstract class qtype_multichoicel_renderer_base extends qtype_with_combined_feed
         $classes = array();
 
 
-$result = '';
+
         foreach ($question->get_order($qa) as $value => $ansid) {
             $ans = $question->answers[$ansid];
             $inputattributes['name'] = $this->get_input_name($qa, $value);
@@ -148,8 +148,15 @@ $result = '';
                 $feedbackimg[] = '';
             }
             $classes[] = $class;
+        }
 
-                 $result .= html_writer::start_tag('span', array('id' => 'maximumselections' , 'style' => 'display:none'));
+
+
+        $result = '';
+
+
+
+        $result .= html_writer::start_tag('span', array('id' => 'maximumselections' , 'style' => 'display:none'));
 	$result .= $question->maximumanswers;
         $result .= html_writer::end_tag('span');
 	if ($question->maximumanswers !=1){
@@ -161,9 +168,6 @@ $result = '';
 	}
         $this->page->requires->js_call_amd('qtype_multichoicel/maxanswers', 'init' ,array($question->maximumanswers,$messagemaxans,$messagemaxonly));
 
-        }
-
-   
         $result .= html_writer::tag('div', $question->format_questiontext($qa),
                 array('class' => 'qtext'));
 

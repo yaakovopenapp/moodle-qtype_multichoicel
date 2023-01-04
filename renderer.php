@@ -157,11 +157,15 @@ abstract class qtype_multichoicel_renderer_base extends qtype_with_combined_feed
 
 
         $result .= html_writer::start_tag('span', array('id' => 'maximumselections' , 'style' => 'display:none'));
-        $result .= $question->maximumanswers;
+	$result .= $question->maximumanswers;
         $result .= html_writer::end_tag('span');
-        $messagemaxans = get_string('messagemaxans', 'qtype_multichoicel');
+	if ($question->maximumanswers !=1){
+	$messagemaxans = get_string('messagemaxans', 'qtype_multichoicel');
         $messagemaxonly = get_string('messagemaxonly', 'qtype_multichoicel');
-
+	}else{
+	$messagemaxans = get_string('messagemaxansone', 'qtype_multichoicel');
+        $messagemaxonly = get_string('messagemaxonlyone', 'qtype_multichoicel');
+	}
         $this->page->requires->js_call_amd('qtype_multichoicel/maxanswers', 'init' ,array($question->maximumanswers,$messagemaxans,$messagemaxonly));
 
         $result .= html_writer::tag('div', $question->format_questiontext($qa),

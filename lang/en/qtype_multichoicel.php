@@ -85,3 +85,5 @@ $string['toomanyselected'] = 'You have selected too many options.';
 $string['maximumanswers'] = 'Maximum number of answers';
 $string['messagemaxans'] = 'Please select only';
 $string['messagemaxonly'] = 'answers.';
+$string['messagemaxansone'] ='Please select only';
+$string['messagemaxonlyone'] = 'answer.';

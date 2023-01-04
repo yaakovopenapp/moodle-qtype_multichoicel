@@ -87,3 +87,6 @@ $string['toomanyselected'] = 'בחרת יותר מדי אפשרויות.';
 $string['maximumanswers'] = 'מספר תשובות מקסימלי';
 $string['messagemaxans'] ='יש לבחור ';
 $string['messagemaxonly'] = 'תשובות בלבד.';
+$string['messagemaxansone'] =' יש לבחור תשובה ';
+$string['messagemaxonlyone'] = 'בלבד.';
+

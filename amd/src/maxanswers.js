@@ -24,60 +24,44 @@
 define(['jquery'], function() {
 
 
-    var init = function(max,messagemaxans,messagemaxonly) {
+    var init = function() {
 
-
-        $max = max-1;
-        $messagemaxans = messagemaxans;
-        $messagemaxonly = messagemaxonly;
 
         $(document).ready(function() {
-            let $total = 0;
-            $("div.answer input[type=checkbox]").each(function(){
-                $(this).on("click", function(event) {
-                    if (!$(this).is(":checked")) {
-                        $total = $total - 1;
-                    } else if ($total <= $max) {
-                        $total = $total + 1 ;
-                    } else {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                });
-            });
-    });
-
-    $(document).ready(function() {
-
             $("div.formulation.clearfix").each(function() {
-
-                if ($(this).find("#maximumselections").length) {
-                let maxselect = parseInt($(this).find("#maximumselections").text());
-                $(this).find("#numberselections").text(maxselect);
-                let $total = 1;
-                $(this).find("div.answer input[type=checkbox]").each(function() {
-                    if($(this).is(":checked")){ $total++; }
+                //  $(this).find("div.answer input[type=checkbox]").each(function() {
+                    $(this).find("div.answer input[type=checkbox]").each(function() {
+                         
                     $(this).on("click", function(event) {
+                        let maxanswers = $(this).data('maxanswers');
+                        let qid = this.id.replace(/_.*/, '');
+                        let qidmessage = qid.replace(/q/, 'question-');
+                        qidmessage = qidmessage.replace(/:/, '-');
+                        let validationerrorid = qidmessage + qid;
+                        let totalChecked = $('[id^="' + qid + '"]').toArray().reduce((t, v) => t + (v.checked ? 1 : 0), 0);
                         if (!$(this).is(":checked")) {
-                            $total = $total - 1;
                             $("div.validationerror").remove();
-                        } else if ($total <= maxselect) {
-                            $total = $total + 1;
-                            $("div.validationerror").remove();
+                        } else if (totalChecked <= maxanswers) {
+                            totalChecked = totalChecked + 1;
+                             $("div.validationerror").remove();
+
                         } else {
                             event.preventDefault();
                             event.stopPropagation();
-                            if (!$("div.validationerror").length) {
-                                $("div.answer").after("<div class='validationerror'>" + $messagemaxans + "  " + maxselect + " " + $messagemaxonly + " </div>");
+                            if (!$("div.validationerror").length ) {
+                            
                             }
+                            
                         }
+                        
                     });
                 });
-            }
-        });
-    })
 
+            }
+        );
+});
 }
+
     return {
         init: init
     };

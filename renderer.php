@@ -94,6 +94,7 @@ abstract class qtype_multichoicel_renderer_base extends qtype_with_combined_feed
             $inputattributes['value'] = $this->get_input_value($value);
             $inputattributes['id'] = $this->get_input_id($qa, $value);
             $inputattributes['aria-labelledby'] = $inputattributes['id'] . '_label';
+            $inputattributes['data-maxanswers'] = $question->maximumanswers;
             $isselected = $question->is_choice_selected($response, $value);
             if ($isselected) {
                 $inputattributes['checked'] = 'checked';
@@ -108,7 +109,6 @@ abstract class qtype_multichoicel_renderer_base extends qtype_with_combined_feed
                     'value' => 0,
                 ));
             }
-
 
 
 
@@ -155,19 +155,6 @@ abstract class qtype_multichoicel_renderer_base extends qtype_with_combined_feed
         $result = '';
 
 
-
-        $result .= html_writer::start_tag('span', array('id' => 'maximumselections' , 'style' => 'display:none'));
-	$result .= $question->maximumanswers;
-        $result .= html_writer::end_tag('span');
-	if ($question->maximumanswers !=1){
-	$messagemaxans = get_string('messagemaxans', 'qtype_multichoicel');
-        $messagemaxonly = get_string('messagemaxonly', 'qtype_multichoicel');
-	}else{
-	$messagemaxans = get_string('messagemaxansone', 'qtype_multichoicel');
-        $messagemaxonly = get_string('messagemaxonlyone', 'qtype_multichoicel');
-	}
-        $this->page->requires->js_call_amd('qtype_multichoicel/maxanswers', 'init' ,array($question->maximumanswers,$messagemaxans,$messagemaxonly));
-
         $result .= html_writer::tag('div', $question->format_questiontext($qa),
                 array('class' => 'qtext'));
 
@@ -199,6 +186,21 @@ abstract class qtype_multichoicel_renderer_base extends qtype_with_combined_feed
                     array('class' => 'validationerror'));
         }
 
+
+
+$result .= html_writer::start_tag('span', array('class' => 'maximumselections' ));
+
+if ($question->maximumanswers !=1){
+$messagemaxans = get_string('messagemaxans', 'qtype_multichoicel');
+    $messagemaxonly = get_string('messagemaxonly', 'qtype_multichoicel');
+}else{
+$messagemaxans = get_string('messagemaxansone', 'qtype_multichoicel');
+    $messagemaxonly = get_string('messagemaxonlyone', 'qtype_multichoicel');
+}
+$result .= $messagemaxans . $question->maximumanswers . " " . $messagemaxonly;
+$result .= html_writer::end_tag('span');
+
+    $this->page->requires->js_call_amd('qtype_multichoicel/maxanswers', 'init' ,array($question->maximumanswers,$messagemaxans,$messagemaxonly));
 
 
         return $result;

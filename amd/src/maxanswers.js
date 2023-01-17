@@ -28,6 +28,7 @@ define(['jquery'], function() {
                     $(this).find("div.answer input[type=checkbox]").each(function() {
                     $(this).on("click", function(event) {
                         let maxanswers = $(this).data('maxanswers');
+                        if (maxanswers) {
                         let qid = this.id.replace(/_.*/, '');
                         let totalChecked = $('[id^="' + qid + '"]').toArray().reduce((t, v) => t + (v.checked ? 1 : 0), 0);
                         if (!$(this).is(":checked")) {
@@ -39,7 +40,10 @@ define(['jquery'], function() {
                             event.preventDefault();
                             event.stopPropagation();
                         }
+                     }
                     });
+        
+                
                 });
             }
         );
